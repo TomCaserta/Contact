@@ -4,7 +4,7 @@
   "description": "A contacts single page application manager",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: TODO: No tests specified\" && exit 1",
+    "test": "mocha tests/.setup.js tests/**/*-test.js",
     "start": "node server.js"
   },
   "author": "Thomas Caserta",
@@ -19,7 +19,13 @@
     "babel-preset-latest": "^6.16.0",
     "babel-preset-react": "^6.16.0",
     "babel-preset-stage-0": "^6.16.0",
+    "chai": "^3.5.0",
+    "enzyme": "^2.6.0",
     "express": "^4.14.0",
+    "jsdom": "^9.8.3",
+    "mocha": "^3.1.2",
+    "react-addons-test-utils": "^15.4.0",
+    "react-dom": "^15.4.0",
     "webpack": "^1.13.3",
     "webpack-dev-middleware": "^1.8.4",
     "webpack-dev-server": "^1.16.2",
