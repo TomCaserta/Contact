@@ -4,7 +4,7 @@
   "description": "A contacts single page application manager",
   "main": "index.js",
   "scripts": {
-    "test": "mocha tests/.setup.js tests/**/*-test.js",
+    "test": "mocha tests/test-utils/setup.js tests/**/*-test.js",
     "start": "node server.js"
   },
   "author": "Thomas Caserta",
@@ -34,6 +34,7 @@
   "dependencies": {
     "country-list": "^1.0.0",
     "escape-string-regexp": "^1.0.5",
+    "faker": "^3.1.0",
     "mobx": "^2.6.3",
     "mobx-react": "^3.5.9",
     "mobx-react-router": "^3.0.0",

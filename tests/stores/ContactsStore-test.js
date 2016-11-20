@@ -1,24 +1,36 @@
 import { expect } from 'chai';
+import makeContacts from "../test-utils/makeContacts";
 import ContactsStore from "../../src/js/stores/ContactsStore";
 
 describe("ContactsStore", function() {
 
   it("should store a new contact", function() {
     let contactStore = new ContactsStore();
-    contactStore.addContact({
-      "firstName": "Tom",
-      "lastName": "Caserta",
-      "email": "tom@caserta.co.uk",
-      "country": "UK"
-    });
-    expect(contactStore.contacts.length).to.equal(1);
+    contactStore.addContact(makeContacts());
+    expect(contactStore.contacts).to.have.lengthOf(1);
   });
 
-  it("should store a contact with the correct information");
+  it("should store multiple contacts", function () {
+    let contactStore = new ContactsStore();
+    let information = makeContacts(2);
+    contactStore.addContact(information[0]);
+    contactStore.addContact(information[1]);
+    expect(contactStore.contacts).to.have.lengthOf(2);
+  });
 
-  it("should store multiple contacts");
+  it("should store a contact with the correct information", function () {
+      let contactStore = new ContactsStore();
+      let information = makeContacts();
+      contactStore.addContact(information);
+      expect(contactStore.contacts[0].toJson()).to.include(information);
+  });
 
-  it("should assign an ID to a contact");
+  it("should assign an ID to a contact", function () {
+      let contactStore = new ContactsStore();
+      let information = makeContacts();
+      contactStore.addContact(information);
+      expect(contactStore.contacts[0].id).to.exist;
+  });
 
   it("should not filter contacts when no filter is given");
 
