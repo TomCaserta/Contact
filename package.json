@@ -4,10 +4,14 @@
   "description": "A contacts single page application manager",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: TODO: No tests specified\" && exit 1",
+    "start": "node server.js"
   },
   "author": "Thomas Caserta",
   "license": "MIT",
+  "dependences": {
+    "react-hot-loader": "^3.0.0-beta.6"
+  },
   "devDependencies": {
     "babel-core": "^6.18.2",
     "babel-loader": "^6.2.8",
@@ -15,8 +19,14 @@
     "babel-preset-latest": "^6.16.0",
     "babel-preset-react": "^6.16.0",
     "babel-preset-stage-0": "^6.16.0",
-    "react-hot-loader": "^3.0.0-beta.6",
+    "express": "^4.14.0",
     "webpack": "^1.13.3",
-    "webpack-dev-server": "^1.16.2"
+    "webpack-dev-middleware": "^1.8.4",
+    "webpack-dev-server": "^1.16.2",
+    "webpack-hot-middleware": "^2.13.2"
+  },
+  "dependencies": {
+    "react": "^15.4.0",
+    "react-dom": "^15.4.0"
   }
 }
