@@ -1,0 +1,7 @@
+# Module Folders
+node_modules
+
+.eslintcache
+
+*.log
+npm-debug.log*
