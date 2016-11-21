@@ -4,7 +4,7 @@ import { inject, observer } from 'mobx-react';
 
 @inject('routing')
 @observer
-export default class ContactsIntro extends Component {
+export default class Intro extends Component {
 
   render () {
 
