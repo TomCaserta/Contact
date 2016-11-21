@@ -4,6 +4,7 @@ import { inject, observer } from 'mobx-react';
 import {Link} from "react-router";
 import Row from "./Row.jsx";
 import SearchBar from "./SearchBar.jsx";
+import Heading from "./Heading.jsx";
 
 @inject('routing')
 @inject('contacts')
@@ -21,14 +22,18 @@ export default class List extends Component {
     //   return <li key={contact.id} className="contact-list-item">{contact.fullName}</li>;
     // });
     const listItems = [];
-    let lastLetter = "";
+
+    /* TODO: Move the lastLetter/firstLetter check and refactor into a
+     *       sortKey to allow for different headings and sorts
+     */
+    let prevLetter = "";
 
     for (let i = 0; i < contactsList.length; i++) {
       let contact = contactsList[i];
       let firstLetter = contact.fullName.substr(0,1);
-      if (firstLetter.toUpperCase() != lastLetter) {
-        listItems.push(<li className="heading" key={"heading-"+firstLetter}>{firstLetter}</li>);
-        lastLetter = firstLetter;
+      if (firstLetter.toUpperCase() != prevLetter) {
+        listItems.push(<Heading key={"heading-"+firstLetter} title={firstLetter} />);
+        prevLetter = firstLetter;
       }
       listItems.push(<Row active={this.props.params.contactID == contact.id} onClick={this.openContact.bind(this, contact.id)} key={contact.id} contact={contact} />);
     }
