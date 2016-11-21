@@ -1,4 +1,5 @@
-import {observable} from 'mobx';
+import {observable, computed} from 'mobx';
+import {default as md5} from 'md5';
 
 export default class ContactModel {
   store;
@@ -8,15 +9,24 @@ export default class ContactModel {
   @observable country;
   @observable email;
 
+  @computed get fullName () {
+    return this.firstName + " " + this.lastName;
+  }
+
   constructor (store, id, firstName, lastName, email, country) {
     this.store = store;
+    this.id = id;
     this.firstName = firstName;
     this.lastName = lastName;
     this.email = email;
     this.country = country;
   }
 
-  destroy () {
+  getProfilePicture (size = 50) {
+    return "https://www.gravatar.com/avatar/"+md5(this.email.trim().toLowerCase())+"?s="+size;
+  }
+
+  removeContact () {
     this.store.removeContact(this);
   }
 
