@@ -1,0 +1,35 @@
+
+.sidebar {
+  background-color: $brand-light-gray;
+  position: absolute;
+  left: $panel-width;
+  width: $sidebar-width;
+  height: 100vh;
+  overflow: auto;
+}
+
+.main {
+  background-color: $brand-off-white;
+  padding: $padding;
+  position: absolute;
+  height: 100vh;
+  top: 0px;
+  left: calc(#{$panel-width} + #{$sidebar-width});
+  width: calc(100% - #{$panel-width} - #{$sidebar-width});
+}
+
+.panel {
+  background-color: #34c000;
+  position: absolute;
+  width: $panel-width;
+  height: 100vh;
+  left: 0px;
+  top: 0px;
+  .logo {
+    position: relative;
+    left: 50%;
+    margin-top: 10px;
+    transform: translateX(-50%);
+    width: 50px;
+  }
+}

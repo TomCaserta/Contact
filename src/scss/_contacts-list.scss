@@ -1,0 +1,37 @@
+
+.contact-list {
+  list-style: none;
+  padding: 0px;
+  margin: 0px;
+  .contact {
+    cursor: pointer;
+    vertical-align: middle;
+    margin: 0px;
+    padding: $padding;
+    span {
+      padding-left: 10px;
+    }
+    &.active {
+      background-color: $brand-off-white;
+    }
+  }
+  .heading {
+    padding: $padding;
+    color: $brand-primary;
+    background-color: $brand-off-white;
+    border-bottom: 3px solid lighten($brand-light-gray, 2%);
+    font-size: 1.5em;
+  }
+}
+
+.search-bar {
+  width: 100%;
+
+  input {
+    width: 100%;
+    padding: $padding;
+    outline: none;
+    font-size: 1.5em;
+    border: 0px;
+  }
+}
