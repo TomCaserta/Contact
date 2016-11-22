@@ -31,7 +31,7 @@ export default class List extends Component {
     for (let i = 0; i < contactsList.length; i++) {
       let contact = contactsList[i];
       let firstLetter = contact.fullName.substr(0,1);
-      if (firstLetter.toUpperCase() != prevLetter) {
+      if (firstLetter.toUpperCase() != prevLetter.toUpperCase()) {
         listItems.push(<Heading key={"heading-"+firstLetter} title={firstLetter} />);
         prevLetter = firstLetter;
       }
