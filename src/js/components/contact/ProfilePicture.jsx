@@ -1,10 +1,17 @@
-import React, {Component} from "react";
+import React, { PropTypes } from 'react';
+import ContactModel from '../../models/ContactModel';
 
-export default class ProfilePicture extends Component {
-  render () {
-    const profilePicture = this.props.contact.getProfilePicture(this.props.size || 50);
-    return (<div className="profile-picture" style={{width: this.props.size, height: this.props.size, backgroundImage: "url("+profilePicture+")"}}>
-
-    </div>)
-  }
+export default function ProfilePicture(props) {
+  const profilePicture = props.contact.getProfilePicture(props.size || 50);
+  const style = {
+    width: props.size,
+    height: props.size,
+    backgroundImage: `url('${profilePicture}')`,
+  };
+  return (<div className="profile-picture" style={style} />);
 }
+
+ProfilePicture.propTypes = {
+  size: PropTypes.number,
+  contact: PropTypes.instanceOf(ContactModel).isRequired,
+};
