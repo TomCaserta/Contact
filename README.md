@@ -27,6 +27,15 @@ Or run the built in development webpack server:
 npm run start
 ```
 
+# How to Navigate/Use
+
+Just in case:
+
+To add a contact when you're off the intro page (page first seen) click the + icon in the top right corner of the screen under the crude logo. 
+
+To edit or delete a contact, click the contact in the side bar and select the option in the tool bar. 
+
+
 # Some of the more notable technology used
 
 - React
