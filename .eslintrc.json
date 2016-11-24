@@ -1,0 +1,16 @@
+{
+  "parser": "babel-eslint",
+  "extends": "airbnb",
+  "env":{"browser": true},
+  "rules": {
+    "eol-last": 0,
+    "no-plusplus": [2, {
+      "allowForLoopAfterthoughts": true
+    }],
+    "global-require": 0,
+    "no-restricted-syntax": 0,
+    "import/no-dynamic-require": 0,
+    "no-underscore-dangle": 0,
+    "react/jsx-no-bind": 0
+  }
+}
