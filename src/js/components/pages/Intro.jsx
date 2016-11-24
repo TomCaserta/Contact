@@ -1,20 +1,23 @@
-import  React, {Component} from "react";
-import {Link} from "react-router";
-import { inject, observer } from 'mobx-react';
+import React, { Component } from 'react';
+import { Link } from 'react-router';
+import { inject, observer, PropTypes as MobXPropTypes } from 'mobx-react';
 
-@inject('routing')
+@inject('contacts')
 @observer
-export default class Intro extends Component {
+export default class Intro extends Component { // eslint-disable-line
+  static propTypes = {
+    contacts: MobXPropTypes.observableObject,
+  };
 
-  render () {
+  render() {
+    const { contacts } = this.props.contacts;
 
-    const { location, push, goBack } = this.props.routing;
     return (<div>
-      <h2>Connect</h2>
-      <p>The revolutionary way to manage your contacts</p>
+      <h2>Contacts</h2>
+      <p>You currently have {contacts.length} contacts stored.</p>
       <h3>Getting Started</h3>
-      <p>Something about adding a contact etc</p>
+      <p>Add a contact or search for a contact on the left</p>
+      <Link to="/contact/add" className="btn btn-primary">Add a Contact</Link>
     </div>);
   }
-
 }
