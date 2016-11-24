@@ -12,24 +12,47 @@
   background-color: $brand-off-white;
   padding: $padding;
   position: absolute;
-  height: 100vh;
-  top: 0px;
+  height: calc(100vh - #{$toolbar-height});
+  overflow: auto;
+  top: $toolbar-height;
   left: calc(#{$panel-width} + #{$sidebar-width});
   width: calc(100% - #{$panel-width} - #{$sidebar-width});
+
+  a {
+    color: $brand-primary;
+
+    &:hover {
+      color: darken($brand-primary, 10%);
+    }
+  }
 }
 
 .panel {
-  background-color: #34c000;
+  background-color: $brand-primary;
   position: absolute;
   width: $panel-width;
   height: 100vh;
-  left: 0px;
-  top: 0px;
+  left: 0;
+  top: 0;
+
   .logo {
     position: relative;
     left: 50%;
     margin-top: 10px;
+    margin-bottom: 10px;
     transform: translateX(-50%);
     width: 50px;
+  }
+
+  .menu-button {
+    display: block;
+    text-decoration: none;
+    cursor: pointer;
+    background-color: darken($brand-primary, 10%);
+    padding-top: $padding;
+    padding-bottom: $padding;
+    width: 100%;
+    vertical-align: middle;
+    text-align: center;
   }
 }

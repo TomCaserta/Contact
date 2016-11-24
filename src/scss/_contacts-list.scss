@@ -1,20 +1,26 @@
 
 .contact-list {
+  height: calc(100vh - #{$search-bar-height});
+  overflow: auto;
   list-style: none;
-  padding: 0px;
-  margin: 0px;
+  padding: 0;
+  margin: 0;
+
   .contact {
     cursor: pointer;
     vertical-align: middle;
-    margin: 0px;
+    margin: 0;
     padding: $padding;
+
     span {
       padding-left: 10px;
     }
+
     &.active {
-      background-color: $brand-off-white;
+      background-color: lighten($brand-primary, 55%);
     }
   }
+
   .heading {
     padding: $padding;
     color: $brand-primary;
@@ -29,9 +35,13 @@
 
   input {
     width: 100%;
-    padding: $padding;
+    height: $search-bar-height;
+
+    line-height: $search-bar-height;
+    padding-left: $padding;
     outline: none;
     font-size: 1.5em;
-    border: 0px;
+    border: 0;
+    border-bottom: 1px solid $brand-primary;
   }
 }

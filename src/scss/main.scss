@@ -1,19 +1,23 @@
 @import url('https://fonts.googleapis.com/css?family=Open+Sans');
 
-@import "_variables";
-@import "_contact";
-@import "_contacts-list";
-@import "_layout";
-@import "_misc";
-@import "pages/_add";
-@import "pages/_view";
+@import "variables";
+@import "contact";
+@import "contacts-list";
+@import "toolbar";
+@import "layout";
+@import "misc";
+@import "form";
+@import "pages/add";
+@import "pages/view";
+@import "pages/delete";
 
-body, html {
-  width: 100vw;
-  height: 100vh;
-  padding: 0px;
-  margin: 0px;
+body,
+html {
   font-family: 'Open Sans', sans-serif;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  width: 100vw;
 }
 
 * {
@@ -21,9 +25,9 @@ body, html {
 }
 
 .contacts-app {
-  position: absolute;
-  left: 0px;
-  top: 0px;
-  width: 100vw;
   height: 100vh;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100vw;
 }

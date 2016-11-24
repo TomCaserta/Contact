@@ -1,0 +1,13 @@
+.country-list {
+  display: inline-block;
+  float: left;
+  width: 80%;
+
+  .filter .control {
+    width: 100%;
+
+    &.open {
+      border-bottom-right-radius: 0;
+    }
+  }
+}

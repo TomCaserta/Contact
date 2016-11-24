@@ -1,7 +1,21 @@
 $brand-primary: #34c000;
 $brand-light-gray: #ebf0f1;
+$brand-gray: darken($brand-light-gray, 10%);
+$brand-dark-gray: darken($brand-light-gray, 20%);
+$brand-darkest-gray: darken($brand-light-gray, 65%);
 $brand-off-white: #fafafa;
+$brand-highlight: #fff;
+$brand-error: #c00;
+$brand-error-light: lighten($brand-error, 58%);
+$brand-shadow: rgba(0, 0, 0, 0.75);
 
 $padding: 15px;
 $panel-width: 75px;
 $sidebar-width: 30%;
+
+$search-bar-height: 75px;
+$toolbar-height: $search-bar-height;
+
+$form-element-height: 50px;
+$form-element-border-radius: $form-element-height / 2;
+$form-element-shadow: 1px 1px 2px -2px $brand-shadow;

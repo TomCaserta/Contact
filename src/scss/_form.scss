@@ -1,0 +1,201 @@
+form {
+  padding-left: $padding;
+}
+
+@mixin input () {
+  font-size: 1.2em;
+  display: inline-block;
+  float: left;
+  padding: $padding;
+  height: $form-element-height;
+}
+
+.group {
+  padding-top: $padding;
+  transition: padding 0.5s;
+  padding-bottom: $padding;
+  width: 100%;
+
+  &::after {
+    clear: both;
+    display: block;
+    content: " ";
+  }
+
+  label {
+    box-shadow: $form-element-shadow;
+    display: inline-block;
+    float: left;
+    width: 20%;
+    vertical-align: middle;
+    height: $form-element-height;
+    line-height: $form-element-height;
+    padding-bottom: 10px;
+    font-weight: bold;
+    font-size: 1.2em;
+    color: $brand-darkest-gray;
+    border: 0 solid $brand-gray;
+    background-color: $brand-light-gray;
+    border-right: 0;
+    padding-left: $padding;
+    border-top-left-radius: $form-element-border-radius;
+    border-bottom-left-radius: $form-element-border-radius;
+  }
+
+  .control {
+    @include input;
+    box-shadow: $form-element-shadow;
+    width: 80%;
+    vertical-align: middle;
+    line-height: $form-element-height;
+    border: 0 solid $brand-gray;
+    background-color: $brand-highlight;
+    border-left: 0;
+    border-top-right-radius: $form-element-border-radius;
+    border-bottom-right-radius: $form-element-border-radius;
+    outline: none;
+  }
+
+  &.has-error {
+    position: relative;
+    padding-top: 35px + $padding;
+
+    .control,
+    .input-basic {
+      background-color: $brand-error-light;
+      border-top-right-radius: 0;
+    }
+  }
+}
+
+.input-basic {
+  @include input;
+}
+
+.errors {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  transform: translateY(-100%);
+
+  li {
+    background-color: $brand-error-light;
+    border: $brand-error;
+    border-bottom: 1px solid $brand-error;
+    position: relative;
+    z-index: 2;
+    height: 35px;
+    line-height: 35px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-top-right-radius: $form-element-border-radius;
+    border-top-left-radius: $form-element-border-radius;
+    margin-left: 20%;
+  }
+}
+
+.btn {
+  display: inline-block;
+  text-decoration: none;
+  height: $form-element-height;
+  line-height: $form-element-height;
+  background-color: $brand-gray;
+  border-radius: $form-element-border-radius;
+  padding-left: $padding * 2;
+  padding-right: $padding * 2;
+  margin-top: $padding;
+  text-transform: uppercase;
+  border: 0;
+
+  &.btn-primary {
+    background-color: $brand-primary;
+    color: $brand-highlight;
+    font-size: 1.2em;
+
+    &:hover {
+      color: $brand-highlight;
+      background-color: darken($brand-primary, 10%);
+    }
+  }
+
+  &.btn-danger {
+    background-color: $brand-error;
+    color: $brand-highlight;
+    font-size: 1.2em;
+
+    &:hover {
+      color: $brand-highlight;
+      background-color: darken($brand-error, 10%);
+    }
+  }
+
+  &[disabled] {
+    cursor: not-allowed;
+    background-color: $brand-dark-gray;
+    color: $brand-highlight;
+
+    &:hover {
+      background-color: $brand-dark-gray;
+      color: $brand-highlight;
+    }
+  }
+
+  &.right {
+    float: right;
+
+    &::after {
+      clear: both;
+      display: block;
+      content: " ";
+    }
+  }
+
+  &.center {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+  }
+}
+
+.country-selector {
+  position: relative;
+
+  ul {
+    box-shadow: $form-element-shadow;
+    width: 100%;
+    top: $form-element-height;
+    position: absolute;
+    max-height: 300px;
+    overflow: auto;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    background: $brand-highlight;
+  }
+
+  li {
+    cursor: pointer;
+    height: 60px;
+    vertical-align: middle;
+    margin: 0;
+    line-height: 50px;
+    border-bottom: 1px solid $brand-dark-gray;
+
+    .list-flag {
+      text-align: left;
+      vertical-align: middle;
+      min-width: 110px;
+    }
+
+    &:hover {
+      background-color: lighten($brand-primary, 58%);
+    }
+
+    &.selected {
+      background-color: lighten($brand-primary, 55%);
+    }
+  }
+}

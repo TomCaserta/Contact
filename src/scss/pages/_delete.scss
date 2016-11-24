@@ -1,0 +1,24 @@
+.delete {
+  width: 100%;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  background-color: $brand-highlight;
+  border-radius: 15px;
+  padding: $padding;
+
+  .btn-primary {
+    float: left;
+  }
+
+  .btn-danger {
+    float: right;
+  }
+
+  &::after {
+    display: block;
+    content: " ";
+    clear: both;
+  }
+}

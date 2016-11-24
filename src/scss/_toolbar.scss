@@ -1,0 +1,24 @@
+.toolbar {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: calc(#{$panel-width} + #{$sidebar-width});
+  width: calc(100% - #{$panel-width} - #{$sidebar-width});
+  height: $toolbar-height;
+  background-color: $brand-primary;
+
+  .menu-item {
+    color: $brand-highlight;
+    border-left: 1px solid $brand-primary;
+    background-color: darken($brand-primary, 10%);
+    display: inline-block;
+    text-decoration: none;
+    text-align: center;
+    padding-left: $padding;
+    padding-right: $padding;
+    height: $toolbar-height;
+    line-height: 75px;
+    vertical-align: middle;
+    cursor: pointer;
+  }
+}

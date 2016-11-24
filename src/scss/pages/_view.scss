@@ -1,3 +1,34 @@
 .contact-display-picture {
   text-align: center;
 }
+
+.contact-display-heading {
+  text-align: center;
+}
+
+.contact-display-info-rows {
+  > div {
+    width: 90%;
+    max-width: 300px;
+    margin-left: auto;
+    margin-right: auto;
+    min-height: 50px;
+
+    .title,
+    .data {
+      display: inline-block;
+      width: 50%;
+      float: left;
+    }
+
+    .title {
+      font-weight: bold;
+    }
+
+    &::after {
+      display: inline-block;
+      content: " ";
+      clear: both;
+    }
+  }
+}
