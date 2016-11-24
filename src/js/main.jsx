@@ -50,6 +50,15 @@ const stores = {
 const verifyContactExists = contactExists.bind(null, contactsStore);
 const history = syncHistoryWithStore(hashHistory, routingStore);
 
+let element = null;
+if (process.env.NODE_ENV === 'production') {
+  element = document.createElement('div');
+  element.setAttribute('id', 'root');
+  document.body.appendChild(element);
+} else {
+  element = document.getElementById('root');
+}
+
 ReactDOM.render(
   <Provider {...stores}>
     <Router history={history}>
@@ -62,5 +71,5 @@ ReactDOM.render(
       </Route>
     </Router>
   </Provider>,
-  document.getElementById('root'),
+  element,
 );
