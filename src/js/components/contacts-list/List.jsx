@@ -1,41 +1,49 @@
-import  React, {Component} from "react";
-import { inject, observer } from 'mobx-react';
+import React, { Component, PropTypes } from 'react';
+import { inject, observer, PropTypes as MobXPropTypes } from 'mobx-react';
 
-import {Link} from "react-router";
-import Row from "./Row.jsx";
-import SearchBar from "./SearchBar.jsx";
-import Heading from "./Heading.jsx";
+import Row from './Row';
+import SearchBar from './SearchBar';
+import Heading from './Heading';
 
 @inject('routing')
 @inject('contacts')
 @observer
-export default class List extends Component {
-  openContact (id) {
-    const { push } = this.props.routing;
-    push("/contact/"+id);
-  }
+export default class List extends Component { // eslint-disable-line
+  static propTypes = {
+    routing: MobXPropTypes.observableObject,
+    contacts: MobXPropTypes.observableObject,
+    params: PropTypes.shape({
+      contactID: PropTypes.string,
+    }),
+  };
 
-  render () {
-    const { location, push, goBack } = this.props.routing;
+  render() {
+    const { push } = this.props.routing;
     const contactsList = this.props.contacts.filteredContacts;
-    // const contacts = contactsList.map((contact) => {
-    //   return <li key={contact.id} className="contact-list-item">{contact.fullName}</li>;
-    // });
+    const selectedContactID = parseInt(this.props.params.contactID, 10);
     const listItems = [];
 
     /* TODO: Move the lastLetter/firstLetter check and refactor into a
      *       sortKey to allow for different headings and sorts
      */
-    let prevLetter = "";
+    let prevLetter = '';
 
     for (let i = 0; i < contactsList.length; i++) {
-      let contact = contactsList[i];
-      let firstLetter = contact.fullName.substr(0,1);
-      if (firstLetter.toUpperCase() != prevLetter.toUpperCase()) {
-        listItems.push(<Heading key={"heading-"+firstLetter} title={firstLetter} />);
+      const contact = contactsList[i];
+      const firstLetter = contact.fullName.substr(0, 1);
+
+      if (firstLetter.toUpperCase() !== prevLetter.toUpperCase()) {
+        listItems.push(<Heading key={`heading-${firstLetter}`} title={firstLetter} />);
         prevLetter = firstLetter;
       }
-      listItems.push(<Row active={this.props.params.contactID == contact.id} onClick={this.openContact.bind(this, contact.id)} key={contact.id} contact={contact} />);
+
+      listItems.push(<Row
+        active={selectedContactID === contact.id}
+        key={contact.id}
+        contact={contact}
+        push={push}
+        link={`/contact/${contact.id}`}
+      />);
     }
     return (<div>
       <SearchBar />

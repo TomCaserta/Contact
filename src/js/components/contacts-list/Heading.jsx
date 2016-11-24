@@ -1,7 +1,9 @@
-import React, {Component} from "react";
+import React, { PropTypes } from 'react';
 
-export default class Heading extends Component {
-  render () {
-    return (<li className="heading">{this.props.title.toUpperCase()}</li>);
-  }
+export default function Heading(props) {
+  return (<li className="heading">{props.title.toUpperCase()}</li>);
 }
+
+Heading.propTypes = {
+  title: PropTypes.string.isRequired,
+};
