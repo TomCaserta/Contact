@@ -25,7 +25,7 @@ import BackButton from './components/toolbar/BackButton';
 import ViewToolbar from './components/toolbar/ViewToolbar';
 
 // Dev
-import makeContacts from 'babel!../../tests/test-utils/makeContacts'; // eslint-disable-line
+// import makeContacts from 'babel!../../tests/test-utils/makeContacts'; // eslint-disable-line
 
 const routingStore = new RouterStore();
 
